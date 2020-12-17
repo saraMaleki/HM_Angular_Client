@@ -9,6 +9,7 @@ export class HttpService {
 
   SERVER_URL="https://hypermapper-server.herokuapp.com";
   // SERVER_URL = "http://127.0.0.1:5000";
+  
 
   constructor(private http: HttpClient) {}
 
