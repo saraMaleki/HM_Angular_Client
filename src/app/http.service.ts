@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 export class HttpService {
   // jsonFile = '../assets/products.json';
 
-  //SERVER_URL="https://hypermapper-server.herokuapp.com";
-  SERVER_URL = "http://127.0.0.1:5000";
+  SERVER_URL="https://hypermapper-server.herokuapp.com";
+  // SERVER_URL = "http://127.0.0.1:5000";
 
   constructor(private http: HttpClient) {}
 
