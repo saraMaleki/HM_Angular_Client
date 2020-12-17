@@ -1,0 +1,106 @@
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo mr-auto"><a>Client-server HyperMapper</a></h1>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-1 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                <div id="validatio_alert" name="validatio_alert" class="alert alert-danger" role="alert" *ngIf="inputError">
+                    <ul>
+                      <li *ngFor="let msg of message">{{ msg }}</li>
+                  </ul>
+
+                </div>
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                  <div class="container-fluid">
+                      <div class="form-group row col-lg-12">
+                              <fieldset disabled>
+                                  <div class="form-group">
+                                    <label for="applicationName" style="color:white">Application Name</label>
+                                      <input type="text" id="applicationName" name="applicationName" class="form-control" value="Chakong-Haimes" required>
+                                  </div>
+                              </fieldset>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group" style="color:white;">
+                                 <label for="numberOfSamples">Number Of Samples</label>
+                                 <input type="text" class="form-control" id="numberOfSamples" name="numberOfSamples" ngModel required>
+                              </div>
+                          </div>
+    
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                   <label for="numberOfIteration" style="color:white">Number Of Iteration</label>
+                                   <input type="text" class="form-control" id="numberOfIteration" name="numberOfIteration" ngModel required>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group" style="color:white;">
+                                <label for="numberOfSamples">x1-from</label>
+                                <input type="text" class="form-control" id="x1from" name="x1from" ngModel required>
+                              </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group" style="color:white;">
+                                <label for="numberOfSamples">x1-to</label>
+                                <input type="text" class="form-control" id="x1to" name="x1to" ngModel required>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group" style="color:white;">
+                                <label for="numberOfSamples">x2-from</label>
+                                <input type="text" class="form-control" id="x2from" name="x2from" ngModel required>
+                              </div>
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="form-group" style="color:white;">
+                                <label for="numberOfSamples">x2-to</label>
+                                <input type="text" class="form-control" id="x2to" name="x2to" ngModel required>
+                              </div>
+                          </div>
+                       </div>
+                      <div class="row">
+                          <div class="col-lg-4">
+                               <div class="form-group">
+                                <button class="btn btn-success" type="submit" [disabled]="!f.valid || processStart">Run Hypermapper</button>
+                               </div>
+                           </div>
+                          <div class="col-lg-4">
+                          </div>
+                           <div class="col-lg-4">
+                               <div class="form-group">
+                                  <button type="button" disabled class="btn btn-warning" id="btn_csv" name="btn_csv" [disabled]="!csvReady" (click)="downloadcsv()">Download CSV File</button>
+                               </div>
+                           </div>
+                      </div>
+                  </div>
+                </form>
+          </div>
+          <div class="col-lg-6 order-2 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+            <img src="../assets/img/hero-img.png" class="img-fluid animated" height="300px" width="300px" alt="">
+            <div class="form-group purple-border">
+              <label for="message" style="color:white">Progress Status</label>
+              <div id="progressStatus" name="progressStatus" class="alert alert-success" role="alert" style="overflow-y: scroll;height:200px;">
+                <ul>
+                  <li *ngFor="let msg of serverMessages">{{ msg }}</li>
+                </ul>
+              </div>
+          </div>
+          </div>
+      </div>
+    </div>
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+    <div id="preloader"></div>
+  </main><!-- End #main -->
+
+
